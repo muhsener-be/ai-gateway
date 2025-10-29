@@ -11,6 +11,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @MappedSuperclass
@@ -37,7 +38,15 @@ public abstract class BaseJpaEntity {
     @Column(name = "updated_by")
     protected UUID updatedBy;
 
-    private List<DomainEvent> domainEvents = new ArrayList<>();
+    private final List<DomainEvent> domainEvents = new ArrayList<>();
+
+
+    protected BaseJpaEntity() {
+    }
+
+    protected BaseJpaEntity(UUID id) {
+        this.id = id;
+    }
 
     public List<DomainEvent> releaseEvents() {
         ArrayList<DomainEvent> returnList = new ArrayList<>(this.domainEvents);
@@ -49,4 +58,16 @@ public abstract class BaseJpaEntity {
         this.domainEvents.add(domainEvent);
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        BaseJpaEntity that = (BaseJpaEntity) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
