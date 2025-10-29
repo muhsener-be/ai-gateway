@@ -1,0 +1,14 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: ${APPLICATION_NAME:ai-gateway}
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+  config:
+    import:
+      - classpath:application-dev.yml
+      - classpath:application-prod.yml
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.xml
