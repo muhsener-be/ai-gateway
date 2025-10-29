@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="002.1-insert-system-user-into-users-table" author="muhsener-be">
+        <comment>For auditing integrity, we need a system user. It will be inactive.</comment>
+        <insert tableName="users">
+            <column name="id" value="00000000-0000-0000-0000-000000000000"/>
+            <column name="username" value="system"/>
+            <column name="password" value="{noop}system"/>
+            <column name="is_active" defaultValue="false"/>
+            <column name="created_at" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="updated_at" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
