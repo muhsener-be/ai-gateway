@@ -21,7 +21,7 @@ import java.util.UUID;
 public class User extends BaseJpaEntity {
 
     public static final int USERNAME_MAX_LENGTH = 50;
-    public static final int USERNAME_MIN_LENGTH = 6;
+    public static final int USERNAME_MIN_LENGTH = 5;
 
     @Column(name = "username", nullable = false)
     private String username;

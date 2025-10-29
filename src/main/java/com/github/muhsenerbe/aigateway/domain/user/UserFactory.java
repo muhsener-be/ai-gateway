@@ -10,7 +10,7 @@ import java.util.Optional;
 @Component
 @RequiredArgsConstructor
 public class UserFactory {
-    private static final int PASSWORD_MIN_LENGTH = 6;
+    private static final int PASSWORD_MIN_LENGTH = 5;
     private static final int PASSWORD_MAX_LENGTH = 50;
     private final PasswordEncoder passwordEncoder;
 

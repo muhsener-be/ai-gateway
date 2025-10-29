@@ -1,0 +1,14 @@
+package com.github.muhsenerbe.aigateway.infrastructure.bootstrap;
+
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@ConfigurationProperties(prefix = "bootstrap.user")
+@Component
+@Data
+public class BootstrapUserDetails {
+
+    private String username;
+    private String password;
+}

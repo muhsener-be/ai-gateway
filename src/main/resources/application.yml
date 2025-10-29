@@ -16,3 +16,9 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: validate
+
+
+bootstrap:
+  user:
+    username: ${BOOTSTRAP_USERNAME:admin}
+    password: ${BOOTSTRAP_PASSWORD:admin}
