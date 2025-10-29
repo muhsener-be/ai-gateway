@@ -38,6 +38,8 @@ public abstract class BaseJpaEntity {
     @Column(name = "updated_by")
     protected UUID updatedBy;
 
+
+    @Transient
     private final List<DomainEvent> domainEvents = new ArrayList<>();
 
 

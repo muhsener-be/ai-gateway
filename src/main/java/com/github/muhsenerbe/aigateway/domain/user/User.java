@@ -32,7 +32,7 @@ public class User extends BaseJpaEntity {
     @Column(name = "is_active", nullable = false)
     private boolean isActive;
 
-    private User(UUID id, String username, String password, boolean isActive) {
+    protected User(UUID id, String username, String password, boolean isActive) {
         super(id);
         this.username = username;
         this.password = password;
