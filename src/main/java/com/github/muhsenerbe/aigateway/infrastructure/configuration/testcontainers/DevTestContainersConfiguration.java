@@ -1,4 +1,4 @@
-package com.github.muhsenerbe.aigateway.infrastructure.testcontainers;
+package com.github.muhsenerbe.aigateway.infrastructure.configuration.testcontainers;
 
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
