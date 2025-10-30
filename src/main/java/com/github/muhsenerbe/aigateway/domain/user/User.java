@@ -10,6 +10,7 @@ import org.hibernate.annotations.SQLDelete;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Getter
@@ -49,9 +50,16 @@ public class User extends BaseJpaEntity {
     private void validate() {
         List<String> errors = new ArrayList<>();
 
-        if (username == null || username.isBlank() || username.length() < USERNAME_MIN_LENGTH || username.length() > USERNAME_MAX_LENGTH) {
+        if (username == null ||
+                username.isBlank() ||
+                username.length() < USERNAME_MIN_LENGTH ||
+                username.length() > USERNAME_MAX_LENGTH) {
             errors.add("Username is required, and it must be between %d and %d characters long".formatted(USERNAME_MIN_LENGTH, USERNAME_MAX_LENGTH));
         }
+
+        if (username != null && Objects.equals("system", username))
+            errors.add("Username cannot be 'system'. It is reserved keyword.");
+
 
         if (password == null || password.isBlank())
             errors.add("An encrypted password is required.");
