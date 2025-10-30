@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(
+          title='Prompt Şablonları',
+          activeLink='prompts',
+          content=~{::content}
+      )}">
+<th:block th:fragment="content">
+
+    <div th:if="${successMessage}" class="alert alert-success">
+        <span th:text="${successMessage}"></span>
+    </div>
+
+    <div class="list-header">
+        <h2>Prompt Şablonları</h2>
+        <a th:href="@{/prompts/new}" class="btn btn-primary">
+            <i class="icon-plus"></i> Yeni Template Ekle
+        </a>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Slug (Kısa Ad)</th>
+                <th>Amaç (Goal)</th>
+                <th>İşlemler</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${promptPage.isEmpty()}">
+                <td colspan="3" class="text-center">Henüz bir prompt şablonu oluşturulmamış.</td>
+            </tr>
+
+            <tr th:each="prompt : ${promptPage.content}">
+                <td th:text="${prompt.slug}">city-content-generator</td>
+                <td th:text="${prompt.goal}">Şehirler için zengin içerik...</td>
+                <td class="actions">
+                    <a href="#" class="btn btn-sm btn-secondary">Versiyonlar</a>
+                    <a href="#" class="btn btn-sm btn-secondary">Düzenle</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:if="${promptPage.totalPages > 1}" class="pagination-controls">
+
+        <span class="page-info">
+            Sayfa
+            <strong th:text="${promptPage.number + 1}">1</strong> /
+            <strong th:text="${promptPage.totalPages}">5</strong>
+        </span>
+
+        <div class="page-links">
+            <a th:unless="${promptPage.first}"
+               th:href="@{/prompts/list(page=${promptPage.number - 1}, size=${promptPage.size})}"
+               class="btn btn-secondary">
+                &larr; Önceki
+            </a>
+            <a th:if="${promptPage.first}" class="btn btn-secondary disabled">
+                &larr; Önceki
+            </a>
+
+            <a th:unless="${promptPage.last}"
+               th:href="@{/prompts/list(page=${promptPage.number + 1}, size=${promptPage.size})}"
+               class="btn btn-secondary">
+                Sonraki &rarr;
+            </a>
+            <a th:if="${promptPage.last}" class="btn btn-secondary disabled">
+                Sonraki &rarr;
+            </a>
+        </div>
+    </div>
+
+</th:block>
+
+</html>

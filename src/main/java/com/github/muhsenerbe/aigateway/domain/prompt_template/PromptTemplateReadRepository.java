@@ -11,5 +11,5 @@ import java.util.UUID;
 public interface PromptTemplateReadRepository extends JpaRepository<PromptTemplate, UUID> {
 
 
-    Page<PromptTemplateSummaryProjection> findAllSummaries(Pageable pageable);
+    Page<PromptTemplateSummaryProjection> findAllBy(Pageable pageable);
 }

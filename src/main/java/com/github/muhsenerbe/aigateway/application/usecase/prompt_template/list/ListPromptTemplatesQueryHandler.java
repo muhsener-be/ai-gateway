@@ -27,7 +27,7 @@ public class ListPromptTemplatesQueryHandler implements ListPromptTemplatesUseCa
     @Transactional
     public Page<PromptTemplateSummary> handle(@NotNull ListPromptTemplateQuery query) {
         try {
-            Page<PromptTemplateSummaryProjection> pageResult = repository.findAllSummaries(query.pageable());
+            Page<PromptTemplateSummaryProjection> pageResult = repository.findAllBy(query.pageable());
 
             List<PromptTemplateSummary> summaries = mapper.toSummaries(pageResult.getContent());
 
