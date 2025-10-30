@@ -15,6 +15,7 @@ public interface PromptTemplateRepository extends JpaRepository<PromptTemplate, 
     @NotNull Optional<PromptTemplate> findById(@NotNull UUID id);
 
 
+    boolean existsBySlug(String slug);
 
 
 }

@@ -30,15 +30,15 @@ public class PromptTemplate extends SoftDeletableEntity {
     private URI sourceReference;
 
     @Column(name = "ethical_considerations")
-    private String ethnicalConsiderations;
+    private String ethicalConsiderations;
 
 
-    protected PromptTemplate(UUID id, String slug, String goal, URI sourceReference, String ethnicalConsiderations) {
+    protected PromptTemplate(UUID id, String slug, String goal, URI sourceReference, String ethicalConsiderations) {
         super(id);
         this.slug = slug;
         this.goal = goal;
         this.sourceReference = sourceReference;
-        this.ethnicalConsiderations = ethnicalConsiderations;
+        this.ethicalConsiderations = ethicalConsiderations;
     }
 
     @Builder(access = AccessLevel.PROTECTED)

@@ -1,76 +1,38 @@
 <!DOCTYPE html>
-<html lang="tr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Gateway - Dashboard</title>
-    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(
+          title='Ana Panel',
+          activeLink='dashboard',
+          content=~{::content}
+      )}">
+<th:block th:fragment="content">
 
-<div class="dashboard-layout">
+    <div class="card-container">
 
-    <nav class="sidebar">
-        <div class="sidebar-header">
-            <h3>AI Gateway</h3>
+        <div class="card">
+            <h4>Aktif AI Servisleri</h4>
+            <p class="stat">3</p>
+            <span>Model bağlı</span>
         </div>
-        <ul class="sidebar-nav">
-            <li class="active"><a th:href="@{/dashboard}">Ana Panel</a></li>
-            <li><a href="#">AI Modelleri</a></li>
-            <li><a href="#">API Anahtarları</a></li>
-            <li><a href="#">Kullanıcılar</a></li>
-            <li><a href="#">Ayarlar</a></li>
-        </ul>
-    </nav>
 
-    <div class="main-wrapper">
+        <div class="card">
+            <h4>Bugünkü İstek Sayısı</h4>
+            <p class="stat">1,204</p>
+            <span>(Son 24 saat)</span>
+        </div>
 
-        <header class="header">
-            <div class="header-title">
-                <h2>Ana Panel</h2>
-            </div>
-            <div class="header-user">
-                <span th:text="'Merhaba, ' + ${username}">Merhaba, kullanıcı</span>
+        <div class="card">
+            <h4>Hata Oranı</h4>
+            <p class="stat">0.8%</p>
+            <span>(Son 24 saat)</span>
+        </div>
 
-                <form th:action="@{/logout}" method="post" class="logout-form">
-                    <button type="submit" class="btn-logout">Çıkış Yap</button>
-                </form>
-            </div>
-        </header>
-
-        <main class="content">
-
-            <div class="card-container">
-
-                <div class="card">
-                    <h4>Aktif AI Servisleri</h4>
-                    <p class="stat">3</p>
-                    <span>Model bağlı</span>
-                </div>
-
-                <div class="card">
-                    <h4>Bugünkü İstek Sayısı</h4>
-                    <p class="stat">1,204</p>
-                    <span>(Son 24 saat)</span>
-                </div>
-
-                <div class="card">
-                    <h4>Hata Oranı</h4>
-                    <p class="stat">0.8%</p>
-                    <span>(Son 24 saat)</span>
-                </div>
-
-            </div>
-
-            <div class="content-placeholder">
-                <h3>Son İşlemler</h3>
-                <p>Burası yakında son API istekleri veya loglar ile dolacak...</p>
-            </div>
-
-        </main>
     </div>
-</div>
 
-</body>
+    <div class="form-container"> <h3>Hoş Geldiniz</h3>
+        <p>AI Gateway yönetim paneline hoş geldiniz. Soldaki menüden şablonlarınızı yönetebilirsiniz.</p>
+    </div>
+
+</th:block>
+
 </html>

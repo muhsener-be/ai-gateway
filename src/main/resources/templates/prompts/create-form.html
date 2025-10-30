@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(
+          title='Yeni Prompt Template Oluştur',
+          activeLink='prompts',
+          content=~{::content}
+      )}">
+<th:block th:fragment="content">
+
+    <div class="form-container">
+        <form th:action="@{/prompts/create}"
+              th:object="${promptForm}"
+              method="post">
+
+            <div class="form-group">
+                <label for="slug">Slug (Kısa Ad)</label>
+                <input type="text" id="slug" th:field="*{slug}"
+                       th:classappend="${#fields.hasErrors('slug')} ? 'input-error' : ''">
+
+                <p class="help-text">Teknik, benzersiz ID. Örn: `city-content-generator` (Sadece küçük harf, rakam, -)</p>
+
+                <div th:if="${#fields.hasErrors('slug')}" th:errors="*{slug}" class="error-message">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="goal">Amaç (Goal)</label>
+                <textarea id="goal" th:field="*{goal}" rows="3"
+                          th:classappend="${#fields.hasErrors('goal')} ? 'input-error' : ''"></textarea>
+                <p class="help-text">Bu şablonun *amacı* nedir? Örn: 'Şehirler için zengin, SEO uyumlu içerik üretmek.'</p>
+                <div th:if="${#fields.hasErrors('goal')}" th:errors="*{goal}" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="sourceReference">Kaynak Referansı (URI)</label>
+                <input type="url" id="sourceReference" th:field="*{sourceReference}" placeholder="https://..."
+                       th:classappend="${#fields.hasErrors('sourceReference')} ? 'input-error' : ''">
+                <p class="help-text">(Opsiyonel) Temel aldığınız kaynak, makale, doküman vb. URL'i.</p>
+                <div th:if="${#fields.hasErrors('sourceReference')}" th:errors="*{sourceReference}" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="ethicalConsiderations">Etik Hususlar</label>
+                <textarea id="ethicalConsiderations" th:field="*{ethicalConsiderations}" rows="4"
+                          th:classappend="${#fields.hasErrors('ethicalConsiderations')} ? 'input-error' : ''"></textarea>
+                <p class="help-text">(Opsiyonel) Bu prompt'un kullanımıyla ilgili dikkat edilmesi gereken etik, kültürel veya yanlılık (bias) konuları.</p>
+                <div th:if="${#fields.hasErrors('ethicalConsiderations')}" th:errors="*{ethicalConsiderations}" class="error-message"></div>
+            </div>
+
+            <div class="form-actions">
+                <a th:href="@{/prompts/list}" class="btn btn-secondary">İptal</a>
+                <button type="submit" class="btn btn-primary">Template Oluştur</button>
+            </div>
+        </form>
+    </div>
+
+</th:block>
+
+</html>
