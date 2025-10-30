@@ -1,4 +1,4 @@
-package com.github.muhsenerbe.aigateway.support.data;
+package com.github.muhsenerbe.aigateway.support.shared;
 
 import com.github.javafaker.Faker;
 
