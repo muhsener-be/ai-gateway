@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(title, content, activeLink)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title} + ' - AI Gateway'">AI Gateway</title>
+
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h3>AI Gateway</h3>
+        </div>
+        <ul class="sidebar-nav">
+            <li th:class="${activeLink == 'dashboard'} ? 'active' : ''">
+                <a th:href="@{/dashboard}">Ana Panel</a>
+            </li>
+            <li th:class="${activeLink == 'prompts'} ? 'active' : ''">
+                <a th:href="@{/prompts/list}">Prompt Şablonları</a>
+            </li>
+            <li th:class="${activeLink == 'apikeys'} ? 'active' : ''">
+                <a href="#">API Anahtarları</a>
+            </li>
+            <li th:class="${activeLink == 'users'} ? 'active' : ''">
+                <a href="#">Kullanıcılar</a>
+            </li>
+            <li th:class="${activeLink == 'settings'} ? 'active' : ''">
+                <a href="#">Ayarlar</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="main-wrapper">
+
+        <header class="header">
+            <div class="header-title">
+                <h2 th:text="${title}">Sayfa Başlığı</h2>
+            </div>
+            <div class="header-user">
+                <span th:text="'Merhaba, ' + ${#authentication.name}">Merhaba, kullanıcı</span>
+                <form th:action="@{/logout}" method="post" class="logout-form">
+                    <button type="submit" class="btn-logout">Çıkış Yap</button>
+                </form>
+            </div>
+        </header>
+
+        <main class="content" th:replace="${content}">
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

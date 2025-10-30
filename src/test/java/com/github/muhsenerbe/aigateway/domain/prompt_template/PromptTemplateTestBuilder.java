@@ -29,7 +29,7 @@ public class PromptTemplateTestBuilder {
                 .withSlug(template.getSlug())
                 .withGoal(template.getGoal())
                 .withSourceReference(template.getSourceReference())
-                .withEthnicalConsiderations(template.getEthnicalConsiderations());
+                .withEthnicalConsiderations(template.getEthicalConsiderations());
     }
 
     public PromptTemplateTestBuilder withId(UUID id) {

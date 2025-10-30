@@ -37,6 +37,8 @@ public class CreatePromptTemplateCommandHandler implements CreatePromptTemplateU
 
         } catch (IllegalObjectException e) {
             throw new BusinessValidationException(e.getMessage(), e);
+        } catch (DuplicatePromptTemplateException e) {
+            throw e;
         } catch (Exception e) {
             throw new SystemException("Unexpected error happened during create prompt-template: " + e.getMessage(), e);
         }
