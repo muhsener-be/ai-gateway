@@ -1,0 +1,24 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: ${APPLICATION_NAME:ai-gateway}
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+  config:
+    import:
+      - classpath:application-dev.yml
+      - classpath:application-prod.yml
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+
+bootstrap:
+  user:
+    username: ${BOOTSTRAP_USERNAME:admin}
+    password: ${BOOTSTRAP_PASSWORD:admin}
