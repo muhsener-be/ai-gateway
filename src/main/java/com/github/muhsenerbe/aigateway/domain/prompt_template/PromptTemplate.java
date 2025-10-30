@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 
+import java.net.URI;
 import java.util.UUID;
 
 @Entity
@@ -26,13 +27,13 @@ public class PromptTemplate extends SoftDeletableEntity {
     private String goal;
 
     @Column(name = "source_reference")
-    private String sourceReference;
+    private URI sourceReference;
 
     @Column(name = "ethical_considerations")
     private String ethnicalConsiderations;
 
 
-    protected PromptTemplate(UUID id, String slug, String goal, String sourceReference, String ethnicalConsiderations) {
+    protected PromptTemplate(UUID id, String slug, String goal, URI sourceReference, String ethnicalConsiderations) {
         super(id);
         this.slug = slug;
         this.goal = goal;
@@ -41,7 +42,7 @@ public class PromptTemplate extends SoftDeletableEntity {
     }
 
     @Builder(access = AccessLevel.PROTECTED)
-    private static PromptTemplate create(String slug, String goal, String sourceReference, String ethnicalConsiderations) {
+    private static PromptTemplate create(String slug, String goal, URI sourceReference, String ethnicalConsiderations) {
         PromptTemplate promptTemplate = new PromptTemplate(null, slug, goal, sourceReference, ethnicalConsiderations);
         promptTemplate.validate();
         return promptTemplate;

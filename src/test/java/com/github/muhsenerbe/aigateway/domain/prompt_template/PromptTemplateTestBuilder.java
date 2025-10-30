@@ -1,5 +1,6 @@
 package com.github.muhsenerbe.aigateway.domain.prompt_template;
 
+import java.net.URI;
 import java.util.UUID;
 
 public class PromptTemplateTestBuilder {
@@ -7,14 +8,14 @@ public class PromptTemplateTestBuilder {
     private UUID id;
     private String slug;
     private String goal;
-    private String sourceReference;
+    private URI sourceReference;
     private String ethnicalConsiderations;
 
     private PromptTemplateTestBuilder() {
         id = UUID.randomUUID();
         slug = "test-slug-" + UUID.randomUUID();
         goal = "Test goal: " + UUID.randomUUID();
-        sourceReference = "https://example.com/" + UUID.randomUUID();
+        sourceReference = URI.create("https://example.com/" + UUID.randomUUID());
         ethnicalConsiderations = "Test ethical considerations " + UUID.randomUUID();
     }
 
@@ -46,7 +47,7 @@ public class PromptTemplateTestBuilder {
         return this;
     }
 
-    public PromptTemplateTestBuilder withSourceReference(String sourceReference) {
+    public PromptTemplateTestBuilder withSourceReference(URI sourceReference) {
         this.sourceReference = sourceReference;
         return this;
     }
