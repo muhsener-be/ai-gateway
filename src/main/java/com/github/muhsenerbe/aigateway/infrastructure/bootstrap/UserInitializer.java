@@ -32,7 +32,5 @@ public class UserInitializer {
         } catch (Exception e) {
             throw new IllegalStateException("Failed to initialize bootstrap user due to: %s".formatted(e.getMessage()), e);
         }
-
-
     }
 }
