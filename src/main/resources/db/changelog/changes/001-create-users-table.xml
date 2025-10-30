@@ -11,19 +11,15 @@
             <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-
             <column name="username" type="varchar">
                 <constraints nullable="false"/>
             </column>
-
             <column name="password" type="text">
                 <constraints nullable="false"/>
             </column>
-
             <column name="is_active" type="boolean" defaultValue="true">
                 <constraints nullable="false"/>
             </column>
-
             <!--            Auditing Columns-->
             <column name="created_at" type="timestamptz" defaultValueComputed="CURRENT_TIMESTAMP">
                 <constraints nullable="false"/>
