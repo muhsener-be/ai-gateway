@@ -22,3 +22,4 @@ bootstrap:
   user:
     username: ${BOOTSTRAP_USERNAME:admin}
     password: ${BOOTSTRAP_PASSWORD:admin}
+

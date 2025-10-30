@@ -1,0 +1,163 @@
+/* Genel */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb; /* Çok açık gri bir arka plan */
+    color: #111827;
+}
+
+/* Ana Layout (Sidebar + Ana Alan) */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 1. Sol Navigasyon (Sidebar) */
+.sidebar {
+    width: 240px;
+    background-color: #1a1a2e; /* Login sayfasıyla uyumlu koyu tema */
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* Küçülmesin */
+}
+
+.sidebar-header {
+    padding: 24px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 16px 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #c0c0c0;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #3d52d5;
+    color: #ffffff;
+}
+
+.sidebar-nav li.active a {
+    background-color: #3d52d5;
+    color: #ffffff;
+}
+
+/* 2. Ana Alan (Header + İçerik) */
+.main-wrapper {
+    flex-grow: 1; /* Kalan tüm alanı kapla */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2a. Header (Üst Bar) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+}
+
+.header-user span {
+    margin-right: 16px;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.logout-form {
+    margin: 0;
+}
+
+.btn-logout {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #ef4444; /* Kırmızı */
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626;
+}
+
+/* 2b. Ana İçerik */
+.content {
+    padding: 32px;
+    flex-grow: 1;
+}
+
+/* Placeholder Kartları */
+.card-container {
+    display: flex;
+    gap: 24px; /* Kartlar arası boşluk */
+    margin-bottom: 32px;
+}
+
+.card {
+    flex: 1; /* Eşit genişlikte */
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h4 {
+    margin: 0 0 8px 0;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card .stat {
+    margin: 0 0 8px 0;
+    font-size: 36px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.card span {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* Placeholder İçerik Alanı */
+.content-placeholder {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
