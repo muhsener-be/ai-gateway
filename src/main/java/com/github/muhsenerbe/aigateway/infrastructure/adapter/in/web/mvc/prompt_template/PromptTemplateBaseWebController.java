@@ -3,8 +3,8 @@ package com.github.muhsenerbe.aigateway.infrastructure.adapter.in.web.mvc.prompt
 
 import com.github.muhsenerbe.aigateway.application.exception.prompt_template.DuplicatePromptTemplateException;
 import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.PromptTemplateApplicationService;
-import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.CreatePromptTemplateCommand;
-import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.PromptTemplateCreationResponse;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.CreatePromptTemplateCommand;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.PromptTemplateCreationResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;

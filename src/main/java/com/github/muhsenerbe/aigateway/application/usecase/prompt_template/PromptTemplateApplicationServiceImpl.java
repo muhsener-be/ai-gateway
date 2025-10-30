@@ -4,8 +4,8 @@ import com.github.muhsenerbe.aigateway.application.exception.shared.BusinessVali
 import com.github.muhsenerbe.aigateway.application.exception.shared.SystemException;
 import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.PromptTemplateApplicationService;
 import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.CreatePromptTemplateUseCase;
-import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.CreatePromptTemplateCommand;
-import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.PromptTemplateCreationResponse;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.CreatePromptTemplateCommand;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.PromptTemplateCreationResponse;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;

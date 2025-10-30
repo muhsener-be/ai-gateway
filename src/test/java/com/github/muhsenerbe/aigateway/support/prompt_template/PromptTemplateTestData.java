@@ -1,7 +1,7 @@
 package com.github.muhsenerbe.aigateway.support.prompt_template;
 
-import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.CreatePromptTemplateCommand;
-import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.PromptTemplateCreationResponse;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.CreatePromptTemplateCommand;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.PromptTemplateCreationResponse;
 import com.github.muhsenerbe.aigateway.infrastructure.adapter.in.web.mvc.prompt_template.CreateTemplateForm;
 import com.github.muhsenerbe.aigateway.support.shared.TestData;
 
