@@ -2,8 +2,9 @@ package com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.cre
 
 import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.CreatePromptTemplateCommand;
 import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.PromptTemplateCreationResponse;
+import org.jetbrains.annotations.NotNull;
 
 public interface CreatePromptTemplateUseCase {
 
-    PromptTemplateCreationResponse handle(CreatePromptTemplateCommand command);
+    PromptTemplateCreationResponse handle(@NotNull CreatePromptTemplateCommand command);
 }

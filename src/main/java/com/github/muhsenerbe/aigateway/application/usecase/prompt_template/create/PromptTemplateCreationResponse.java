@@ -1,4 +1,6 @@
 package com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create;
 
-public record PromptTemplateCreationResponse() {
+import java.util.UUID;
+
+public record PromptTemplateCreationResponse(UUID id) {
 }
