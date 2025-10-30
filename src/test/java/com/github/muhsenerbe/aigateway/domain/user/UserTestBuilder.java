@@ -1,6 +1,6 @@
 package com.github.muhsenerbe.aigateway.domain.user;
 
-import com.github.muhsenerbe.aigateway.support.TestData;
+import com.github.muhsenerbe.aigateway.support.shared.TestData;
 
 import java.util.UUID;
 
