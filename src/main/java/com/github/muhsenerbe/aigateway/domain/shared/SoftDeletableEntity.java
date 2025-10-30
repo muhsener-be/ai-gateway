@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import lombok.Getter;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Getter
 public abstract class SoftDeletableEntity extends BaseJpaEntity {
@@ -12,4 +13,10 @@ public abstract class SoftDeletableEntity extends BaseJpaEntity {
     protected Instant deletedAt;
 
 
+    protected SoftDeletableEntity() {
+    }
+
+    protected SoftDeletableEntity(UUID id) {
+        super(id);
+    }
 }

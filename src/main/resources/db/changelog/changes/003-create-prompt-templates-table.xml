@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="003.1-create-prompt-templates-table" author="muhsener-be">
+        <comment>Creates the table to hold prompt templates</comment>
+        <createTable tableName="prompt_templates">
+            <column name="id" type="UUID" defaultValueComputed="gen_random_uuid()">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="slug" type="varchar" >
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="goal" type="text"/>
+            <column name="source_reference" type="text"/>
+            <column name="ethical_considerations" type="text"/>
+
+
+
+            <!--            Auditing Columns-->
+            <column name="created_at" type="timestamptz" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="timestamptz" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_by" type="UUID">
+                <constraints foreignKeyName="fk_created_by_to_users_id" references="users(id)" nullable="true"/>
+            </column>
+            <column name="updated_by" type="UUID">
+                <constraints foreignKeyName="fk_updated_by_to_users_id" references="users(id)" nullable="true"/>
+            </column>
+
+            <column name="deleted_at" type="timestamptz"/>
+
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
