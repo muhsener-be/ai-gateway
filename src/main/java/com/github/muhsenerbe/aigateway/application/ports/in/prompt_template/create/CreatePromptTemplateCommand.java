@@ -1,4 +1,4 @@
-package com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create;
+package com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create;
 
 import com.github.muhsenerbe.aigateway.domain.shared.AssertUtils;
 import lombok.Builder;

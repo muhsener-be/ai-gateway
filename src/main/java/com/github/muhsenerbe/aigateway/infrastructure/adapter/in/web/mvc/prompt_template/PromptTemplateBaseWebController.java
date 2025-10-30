@@ -3,10 +3,16 @@ package com.github.muhsenerbe.aigateway.infrastructure.adapter.in.web.mvc.prompt
 
 import com.github.muhsenerbe.aigateway.application.exception.prompt_template.DuplicatePromptTemplateException;
 import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.PromptTemplateApplicationService;
-import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.CreatePromptTemplateCommand;
-import com.github.muhsenerbe.aigateway.application.usecase.prompt_template.create.PromptTemplateCreationResponse;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.CreatePromptTemplateCommand;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.create.PromptTemplateCreationResponse;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.list.ListPromptTemplateQuery;
+import com.github.muhsenerbe.aigateway.application.ports.in.prompt_template.list.PromptTemplateSummary;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,6 +69,23 @@ public abstract class PromptTemplateBaseWebController {
 
         return "redirect:/prompts/list";
 
+    }
+
+    @GetMapping("/list")
+    public String listPromptTemplates(
+            // Varsayılan sayfalama: 10'lu, slug'a göre sıralı
+            @PageableDefault(size = 10, sort = "slug", direction = Sort.Direction.ASC) Pageable pageable,
+            Model model
+    ) {
+
+
+        ListPromptTemplateQuery query = mapper.toListQuery(pageable);
+        Page<PromptTemplateSummary> page = service.list(query);
+
+        model.addAttribute("promptPage", page);
+
+        // 3. "templates/prompts/list-page.html" dosyasını render et
+        return "prompts/list-page";
     }
 
 

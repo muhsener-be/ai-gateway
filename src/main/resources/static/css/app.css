@@ -247,3 +247,117 @@ body {
     color: white;
 }
 .btn-primary:hover { background-color: #3244b3; }
+
+
+
+alert {
+    padding: 16px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+/* Liste Sayfası Başlığı ve Buton */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.list-header h2 {
+    margin: 0;
+}
+.list-header .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.icon-plus {
+    /* (Basit bir + ikonu) */
+    font-weight: bold; font-size: 1.2em; line-height: 0;
+}
+
+
+/* Tablo Stilleri */
+.table-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Köşeler için */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+    color: #374151;
+}
+thead th {
+    background-color: #f9fafb;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+tbody tr:last-child td {
+    border-bottom: none;
+}
+tbody tr:hover {
+    background-color: #f9fafb;
+}
+.text-center {
+    text-align: center;
+    color: #9ca3af;
+    padding: 32px;
+}
+
+/* İşlem Butonları (Küçük) */
+td.actions {
+    display: flex;
+    gap: 8px;
+}
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* Sayfalama (Pagination) Stilleri */
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.page-info {
+    font-size: 15px;
+    color: #4b5563;
+}
+.page-links {
+    display: flex;
+    gap: 12px;
+}
+.btn.disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    border-color: #e5e7eb;
+}
+.btn.disabled:hover {
+    background-color: #e5e7eb;
+}
