@@ -7,6 +7,6 @@
 
     <include file="changes/001-create-users-table.xml" relativeToChangelogFile="true"/>
     <include file="changes/002-insert-system-user.xml" relativeToChangelogFile="true"/>
-
+    <include file="changes/003-create-prompt-templates-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
